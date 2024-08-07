@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var username = ""
+    @State private var password = ""
+    @State private var wronguser = 0
+    @State private var wrongpass = 0
+    @State private var showlogin = false
+    
     var body: some View {
         
-        ZStack {
-            Color(.gray)
-                .ignoresSafeArea()
-            
-            VStack {
-                Image("image1")
-                    .resizable()
-                    //.cornerRadius(19)
-                    //.aspectRatio(contentMode: .fit)
-                .padding()
-                Text("nice flowers")
-                    .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(Color.white)
-            }
+        NavigationView {
+            ZStack {
+                Color(.gray)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Image("image1")
+                        .resizable()
+                    .padding()
+                    Text("Login")
+                        .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(Color.white)
+                    TextField("Username", text: $username)
+                }
+                .navigationBarHidden(true)
+        }
+        
         }
         
         
